@@ -10,7 +10,7 @@ class EssenceExtension extends \Twig_Extension
 
     function __construct(Essence $essence)
     {
-        $this->essence = $essence;
+        $this->essence = $essence->getInstance();
     }
 
     /**
