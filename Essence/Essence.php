@@ -5,12 +5,20 @@ namespace Kayue\EssenceBundle\Essence;
 use Doctrine\Common\Cache\ApcCache;
 use Doctrine\Common\Cache\ArrayCache;
 
-class Essence extends \fg\Essence\Essence
+class Essence extends \Essence\Essence
 {
+    protected $essence;
+
     public function __construct($cacheDriver)
     {
-        \fg\Essence\Utility\Registry::register('cache', new Cache($this->getCache($cacheDriver)));
-        parent::__construct();
+        $this->essence = \Essence\Essence::instance(array(
+            'Cache' => new Cache($this->getCache($cacheDriver)),
+        ));
+    }
+
+    public function getInstance()
+    {
+        return $this->essence;
     }
 
     private function getCache($name)

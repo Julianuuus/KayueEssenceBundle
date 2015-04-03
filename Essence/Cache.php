@@ -4,7 +4,7 @@ namespace Kayue\EssenceBundle\Essence;
 
 use Doctrine\Common\Cache\CacheProvider;
 
-class Cache implements \fg\Essence\Cache
+class Cache implements \Essence\Cache\Engine
 {
     /**
      * @var \Doctrine\Common\Cache\CacheProvider
